@@ -3,7 +3,7 @@ const ProductManager = require('./productManager');
 const app = express();
 const products = new ProductManager('./data.json')
 
-app.get('/api/products', async (req, res) => {
+app.get('/products', async (req, res) => {
   try {
     const limit = req.query.limit;
     await products.loadProducts(); 
@@ -19,7 +19,7 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
-app.get('/api/products/:pid', async (req, res) => {
+app.get('/products/:pid', async (req, res) => {
   try {
     const { pid } = req.params;
     console.log('Requested PID:', pid);
@@ -39,7 +39,7 @@ app.get('/api/products/:pid', async (req, res) => {
     }
   });
 
-const PORT = 8000;
+const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Escuchando el puerto ${PORT}`);
 });

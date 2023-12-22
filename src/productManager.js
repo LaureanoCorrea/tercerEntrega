@@ -83,7 +83,7 @@ getProducts() {
   getProductById(id) {
     const product = this.products.find((prod) => prod.id == id);
     if (!product) {
-      return "Producto no encontrado";
+      return "Producto no Existe";
     }
     return product;
   }
